@@ -60,6 +60,84 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        
+        /* Responsividade para tabela no mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            h3 {
+                font-size: 1rem;
+            }
+            
+            /* Transformar tabela em cards no mobile */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            
+            thead {
+                display: none;
+            }
+            
+            table {
+                border: none;
+            }
+            
+            tr {
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                overflow: hidden;
+            }
+            
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                padding: 12px 15px;
+                position: relative;
+                text-align: left;
+            }
+            
+            td:last-child {
+                border-bottom: none;
+            }
+            
+            td::before {
+                content: attr(data-label);
+                display: block;
+                font-weight: bold;
+                color: #1E3A8A;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            
+            td:first-child {
+                background-color: #1E3A8A;
+                color: #fff;
+                padding: 12px 15px;
+            }
+            
+            td:first-child::before {
+                display: none;
+            }
+            
+            td:first-child strong {
+                color: #fff;
+            }
+        }
+        
         .last-updated {
             text-align: center;
             color: #777;
@@ -119,24 +197,24 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Nome Completo</strong></td>
-                    <td>Para que seus contatos possam identificá-lo nos alertas.</td>
-                    <td>Durante o cadastro inicial (Onboarding).</td>
+                    <td data-label="Dado Coletado"><strong>Nome Completo</strong></td>
+                    <td data-label="Finalidade">Para que seus contatos possam identificá-lo nos alertas.</td>
+                    <td data-label="Quando é Coletado">Durante o cadastro inicial (Onboarding).</td>
                 </tr>
                 <tr>
-                    <td><strong>Número de Telefone</strong></td>
-                    <td>Para buscar e verificar outros usuários na rede Guardian P2P.</td>
-                    <td>Durante o cadastro inicial (Onboarding).</td>
+                    <td data-label="Dado Coletado"><strong>Número de Telefone</strong></td>
+                    <td data-label="Finalidade">Para buscar e verificar outros usuários na rede Guardian P2P.</td>
+                    <td data-label="Quando é Coletado">Durante o cadastro inicial (Onboarding).</td>
                 </tr>
                 <tr>
-                    <td><strong>Localização Geográfica</strong></td>
-                    <td>Para ser enviada aos seus Contatos Autorizados <strong>apenas</strong> durante um alerta ativo.</td>
-                    <td>Apenas quando você inicia um alerta manual ou um alerta automático é disparado.</td>
+                    <td data-label="Dado Coletado"><strong>Localização Geográfica</strong></td>
+                    <td data-label="Finalidade">Para ser enviada aos seus Contatos Autorizados <strong>apenas</strong> durante um alerta ativo.</td>
+                    <td data-label="Quando é Coletado">Apenas quando você inicia um alerta manual ou um alerta automático é disparado.</td>
                 </tr>
                 <tr>
-                    <td><strong>Token de Notificação Push</strong></td>
-                    <td>Identificador anônimo do seu dispositivo para permitir o envio e recebimento de alertas P2P.</td>
-                    <td>Automaticamente, na inicialização do aplicativo.</td>
+                    <td data-label="Dado Coletado"><strong>Token de Notificação Push</strong></td>
+                    <td data-label="Finalidade">Identificador anônimo do seu dispositivo para permitir o envio e recebimento de alertas P2P.</td>
+                    <td data-label="Quando é Coletado">Automaticamente, na inicialização do aplicativo.</td>
                 </tr>
             </tbody>
         </table>
